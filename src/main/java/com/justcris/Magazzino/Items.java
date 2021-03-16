@@ -1,3 +1,7 @@
+/*
+ * 3/16/21, 12:49 PM. Scapin Cristian @JustCris654
+ */
+
 package com.justcris.Magazzino;
 
 import java.util.ArrayList;
@@ -33,8 +37,7 @@ public class Items {
         for (Item k :
                 this.items) {
             if (k.getId() == id_toget) {
-                Item clone = new Item(k.getId(), k.getTitle(), k.getPrice(), 1);
-                return clone;
+                return new Item(k.getId(), k.getTitle(), k.getPrice(), 1);
             }
         }
         return null;

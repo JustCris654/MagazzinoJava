@@ -1,3 +1,7 @@
+/*
+ * 3/16/21, 12:49 PM. Scapin Cristian @JustCris654
+ */
+
 package com.justcris.Magazzino;
 
 
@@ -26,35 +30,30 @@ public class FormMagazzino extends JDialog {
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
-        buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    onOK();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+        buttonOK.addActionListener(e -> {
+            try {
+                onOK();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
             }
         });
 
 
-        inviaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String id = txt_id.getText();
-                String name = txt_name.getText();
-                String price = txt_price.getText();
-                String quantity = txt_quantity.getText();
-                try {
-                    URL url = new URL("http://localhost:8080/Magazzino_war_exploded/hello-servlet?id=" + id + "&title=" + name + "&price=" + price + "&quantity=" + quantity);
-                    URLConnection urlConnection = url.openConnection();
-                    BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-                    String response = in.readLine();
-                    JOptionPane.showMessageDialog(null, "Aggiunto");
-                } catch (IOException malformedURLException) {
-                    malformedURLException.printStackTrace();
-                }
-
+        inviaButton.addActionListener(e -> {
+            String id = txt_id.getText();
+            String name = txt_name.getText();
+            String price = txt_price.getText();
+            String quantity = txt_quantity.getText();
+            try {
+                URL url = new URL("http://localhost:8080/Magazzino_war_exploded/hello-servlet?id=" + id + "&title=" + name + "&price=" + price + "&quantity=" + quantity);
+                URLConnection urlConnection = url.openConnection();
+                BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                String response = in.readLine();
+                JOptionPane.showMessageDialog(null, "Aggiunto");
+            } catch (IOException malformedURLException) {
+                malformedURLException.printStackTrace();
             }
+
         });
     }
 

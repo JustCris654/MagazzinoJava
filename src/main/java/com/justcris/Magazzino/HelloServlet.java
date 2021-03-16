@@ -1,4 +1,11 @@
+
+/*
+ * 3/16/21, 12:48 PM. Scapin Cristian @JustCris654
+ */
+
 package com.justcris.Magazzino;
+
+
 
 import java.io.*;
 import java.util.ArrayList;
@@ -52,7 +59,7 @@ public class HelloServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
         response.setContentType("text/html;charset=UTF-8");
 
